@@ -19,7 +19,7 @@ yuzhi 输入的阈值0到1之间.如果大于这个阈值就表示2个文本相�
 直白的说,yuzhi越大那么去重越弱,填入数据库的新数据越多!
 
 '''
-yuzhi=0.6
+yuzhi=0.1
 
 from gensim import corpora, models, similarities
 import logging
@@ -202,7 +202,11 @@ tmp4=[i for i in range(len(tmp2)) if i not in tmp3]
 
 tmp5=[documentsq[i] for i in  tmp3]
 tmp6=[documentsq[i] for i in  tmp4]
-
+import os
+if os.path.exists('result/new_add.txt'):
+    os.remove('result/new_add.txt')
+if os.path.exists('result/new_wuxiao.txt'):
+    os.remove('result/new_wuxiao.txt')
 
 ##
 with open('result/new_add.txt','w') as f:
@@ -212,7 +216,7 @@ with open('result/new_add.txt','w') as f:
 
 
 
-with open('result/wuxiao.txt','w') as f:
+with open('result/new_wuxiao.txt','w') as f:
     for i in tmp6:
         f.write(i)
 ##
@@ -223,7 +227,10 @@ tmp3=tmp3[:10]
 tmp4=tmp4[:10]
 
 
-
+if os.path.exists('result/new_add_check.txt'):
+    os.remove('result/new_add_check.txt')
+if os.path.exists('result/new_wuxiao_check.txt'):
+    os.remove('result/new_wuxiao_check.txt')
 with open('result/new_add_check.txt','w') as f:
 
     for i in tmp3:
