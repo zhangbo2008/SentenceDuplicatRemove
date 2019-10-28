@@ -8,8 +8,8 @@
 函数
 
 '''
-
-
+import time
+start=time.time()
 
 '''
 输入参数介绍:
@@ -35,9 +35,9 @@ pathq='shuru_query.txt'
 start=time.time()
 
 # 准备数据：现有8条文本数据，将8条文本数据放入到list中
-documentsb =[i for  i in open(pathb,encoding='utf-8').readlines() ]
+documentsb =[i for  i in open(pathb,encoding='utf-8').readlines() ]*10000
 
-documentsq =[i for  i in open(pathq,encoding='utf-8').readlines() ]
+documentsq =[i for  i in open(pathq,encoding='utf-8').readlines() ]*10000
 
 
 shujukushuliang=len(documentsb)
@@ -284,3 +284,5 @@ with open('result/new_wuxiao_check.txt','w') as f:
             f.write('对应索引:' + "Q中" + str(i+1) + "行" + "B中" + str(dex) + "行")
             f.write('相似分数'+str(tmp2[i]))
             f.write('\n')
+end=time.time()
+print(end-start)
