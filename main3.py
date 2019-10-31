@@ -21,8 +21,8 @@ yuzhi 输入的阈值0到1之间.如果大于这个阈值就表示2个文本相�
 '''
 #超参数表!
 yuzhi=0.6
-pathb='shuru_database.txt'
-pathq='shuru_query.txt'
+pathb='database(1).txt'
+pathq='query(1).txt'
 b_n=10#切割数量
 q_n=10
 
@@ -285,7 +285,7 @@ for i in tqdm(range(q_n)):
                   out=out.union(tmp)
 
             delta2= bhang // b_n
-            for j in range(i,b_n):
+            for j in range(b_n):
 
                 if j != b_n - 1:
                     s = linecache.getlines(pathb)[j * delta2:(j + 1) * delta2]
@@ -298,7 +298,7 @@ for i in tqdm(range(q_n)):
 
         if i==q_n-1:
             delta2 = bhang // b_n
-            for j in range(i, b_n):
+            for j in range( b_n):
 
                 if j != b_n - 1:
                     s = linecache.getlines(pathb)[j * delta2:(j + 1) * delta2]
