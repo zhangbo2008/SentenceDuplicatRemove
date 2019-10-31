@@ -10,7 +10,7 @@
 '''
 import time
 start=time.time()
-
+from tqdm import tqdm
 '''
 输入参数介绍:
 shuru_database.txt 是输入的数据库,也就是被查询的库
@@ -261,7 +261,7 @@ out=set()
 import linecache
 bhang=hangshu(pathb)
 qhang=hangshu(pathq)
-for i in range(q_n):
+for i in tqdm(range(q_n)):
         delta=qhang//q_n
         if i !=q_n-1:
             q=linecache.getlines(pathq)[i*delta:(i+1)*delta]
@@ -288,9 +288,9 @@ for i in range(q_n):
             for j in range(i,b_n):
 
                 if j != b_n - 1:
-                    s = linecache.getlines(pathb)[j * delta:(j + 1) * delta]
+                    s = linecache.getlines(pathb)[j * delta2:(j + 1) * delta2]
                 else:
-                    s = linecache.getlines(pathb)[j * delta:]
+                    s = linecache.getlines(pathb)[j * delta2:]
                 tmp = op(s, q, i * delta)
                 out = out.union(tmp)
 
@@ -301,9 +301,9 @@ for i in range(q_n):
             for j in range(i, b_n):
 
                 if j != b_n - 1:
-                    s = linecache.getlines(pathb)[j * delta:(j + 1) * delta]
+                    s = linecache.getlines(pathb)[j * delta2:(j + 1) * delta2]
                 else:
-                    s = linecache.getlines(pathb)[j * delta:]
+                    s = linecache.getlines(pathb)[j * delta2:]
                 tmp = op(s, q, i * delta)
                 out = out.union(tmp)
 
