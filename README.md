@@ -1,6 +1,7 @@
 # SentenceDuplicatRemove
 
-运行main2.py
+运行main2.py 是全局Q,S比较
+运行main3.py 是分隔Q,S比较.结果是out和out2 out2表示留下的坐标
 
 
 
