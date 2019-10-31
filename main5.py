@@ -1,4 +1,4 @@
-##
+##   jiekade算法实现.
 # import distance
 #
 # def edit_distance(s1, s2):
@@ -36,7 +36,7 @@ yuzhi 输入的阈值0到1之间.如果大于这个阈值就表示2个文本相�
 
 '''
 #超参数表!
-yuzhi=50
+yuzhi=0.2
 pathb='database(1).txt'
 pathq='query(1).txt'
 b_n=10#切割数量
@@ -105,11 +105,33 @@ def hangshu(filepath):
 
 #pip3 install distance
 def op(  s,q,kaishi):#这个函数做一次切分操作
+    from sklearn.feature_extraction.text import CountVectorizer
+    import numpy as np
+
+    def jaccard_similarity(s1, s2):
+        def add_space(s):
+            return ' '.join(list(s))
+
+        # 将字中间加入空格
+        s1, s2 = add_space(s1), add_space(s2)
+        # 转化为TF矩阵
+        cv = CountVectorizer(tokenizer=lambda s: s.split())
+        corpus = [s1, s2]
+        vectors = cv.fit_transform(corpus).toarray()
+        # 求交集
+        numerator = np.sum(np.min(vectors, axis=0))
+        # 求并集
+        denominator = np.sum(np.max(vectors, axis=0))
+        # 计算杰卡德系数
+        return 1.0 * numerator / denominator
+
+
+
     out=[]
     import distance
 
     def edit_distance(s1, s2):
-        return distance.levenshtein(s1, s2)
+        return jaccard_similarity(s1, s2)
     s=q+s
     for i in range(len(q)):
         for j in range(i+1,len(s)):
@@ -118,7 +140,7 @@ def op(  s,q,kaishi):#这个函数做一次切分操作
 
 
             tmp1=edit_distance(q[i],s[j])
-            if tmp1<yuzhi:
+            if tmp1>yuzhi:
                 out.append(i+kaishi)
                 break
     return set(out)
