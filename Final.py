@@ -19,6 +19,7 @@ pathb='database(1).txt'#库文件
 pathq='query(1).txt'  # 插入文件
 b_n=10#切割数量34234
 q_n=10
+k=10
 
 
 
@@ -57,7 +58,7 @@ elif selectMethod=='main3m':
                    pathb=pathb,  # 库文件
                    pathq=pathq,  # 插入文件
                    b_n=b_n,  # 切割数量
-                   q_n=q_n)
+                   q_n=q_n,k=k)
 
 
 elif selectMethod=='main4m':
@@ -66,7 +67,7 @@ elif selectMethod=='main4m':
                    pathb=pathb,  # 库文件
                    pathq=pathq,  # 插入文件
                    b_n=b_n,  # 切割数量
-                   q_n=q_n)
+                   q_n=q_n,k=k)
 
 elif selectMethod=='main5m':
 
@@ -74,7 +75,7 @@ elif selectMethod=='main5m':
                    pathb=pathb,  # 库文件
                    pathq=pathq,  # 插入文件
                    b_n=b_n,  # 切割数量
-                   q_n=q_n)
+                   q_n=q_n,k=k)
 
 
 

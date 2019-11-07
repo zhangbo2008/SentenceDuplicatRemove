@@ -141,7 +141,7 @@ def main3m(yuzhi=0.6,
            pathb='database(1).txt',
            pathq='query(1).txt',
            b_n=10,  # 切割数量
-           q_n=10):
+           q_n=10,k=10):
     import os
     import multiprocessing
     import time
