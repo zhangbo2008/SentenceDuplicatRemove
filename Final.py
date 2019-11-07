@@ -13,7 +13,7 @@
 
 # 超参数都写这里!!!!!!!!
 # 改变下行传入的参数即可:
-selectMethod='main3m'
+selectMethod='main5m'
 yuzhi=0.6
 pathb='database(1).txt'#库文件
 pathq='query(1).txt'  # 插入文件

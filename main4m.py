@@ -5,7 +5,7 @@
 
 #多进程,不能使用函数内部的函数!!!!!!!!!!
 def op(s, q, kaishi, queue,yuzhi):  # 这个函数做一次切分操作
-    print(yuzhi)
+    # print(yuzhi)
     out = []
     import distance
 
@@ -134,9 +134,9 @@ def main4m(yuzhi=0.6,
                     s = qshuju[j * delta:(j + 1) * delta]
                 else:
                     s = qshuju[j * delta:]
-                print(type(s))
-                print(type(q))
-                print(type(queue))
+                # print(type(s))
+                # print(type(q))
+                # print(type(queue))
                 po.apply(op, args=(s, q, i * delta, queue,yuzhi,))
 
             delta2 = bhang // b_n
@@ -168,7 +168,7 @@ def main4m(yuzhi=0.6,
     while queue.qsize()>0:
         a=queue.get()
         out=out.union(set(a))
-        print(out)
+        # print(out)
         # time.sleep(1)
 
 
@@ -183,7 +183,7 @@ def main4m(yuzhi=0.6,
 
 
 if __name__ == "__main__":
-    print(12121)
+    # print(12121)
     main4m(    yuzhi = 15,
     pathb = 'database(1).txt',  # 库文件
     pathq = 'query(1).txt' , # 插入文件
