@@ -19,7 +19,7 @@ pathb='database(1).txt'#库文件
 pathq='query(1).txt'  # 插入文件
 b_n=10#切割数量34234
 q_n=10
-k=10
+k=10 #使用cpu的核数.
 
 
 
