@@ -40,11 +40,7 @@ def main5(    yuzhi=0.6,
     
     '''
     #超参数表!
-    yuzhi=0.2
-    pathb='database(1).txt'
-    pathq='query(1).txt'
-    b_n=10#切割数量
-    q_n=10
+
 
 
     import os
