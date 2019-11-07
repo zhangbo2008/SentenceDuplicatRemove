@@ -17,7 +17,7 @@ selectMethod='main5m'
 yuzhi=0.6
 pathb='database(1).txt'#库文件
 pathq='query(1).txt'  # 插入文件
-b_n=10#切割数量
+b_n=10#切割数量34234
 q_n=10
 
 
