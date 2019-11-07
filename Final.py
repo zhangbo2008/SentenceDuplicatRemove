@@ -13,7 +13,7 @@
 
 # 超参数都写这里!!!!!!!!
 # 改变下行传入的参数即可:
-selectMethod='main3'
+selectMethod='main5multi'
 yuzhi=0.6
 pathb='database(1).txt'#库文件
 pathq='query(1).txt'  # 插入文件
@@ -30,10 +30,14 @@ q_n=10
 from main3 import main3
 from main4 import main4
 from main5 import main5
+from main3multi import main3m
+from main4multi import main4m
+from main5multi import main5m
 
 
 
-if selectMethod=='main3':
+
+if selectMethod=='main4multi':
     output=main3(yuzhi=yuzhi,
 pathb=pathb, #库文件
 pathq=pathq,  # 插入文件
