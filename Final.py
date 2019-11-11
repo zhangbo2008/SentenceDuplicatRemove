@@ -13,7 +13,7 @@
 
 # 超参数都写这里!!!!!!!!
 # 改变下行传入的参数即可:
-selectMethod='main5m'
+selectMethod='main4'
 yuzhi=0.6
 pathb='database(1).txt'#库文件
 pathq='query(1).txt'  # 插入文件
@@ -35,11 +35,11 @@ from main3m import main3m
 from main4m import main4m
 from main5m import main5m
 
+from main2 import main2
 
 
-
-if selectMethod=='main3':
-    output=main3(yuzhi=yuzhi,
+if selectMethod=='main5':
+    output=main2(yuzhi=yuzhi,
 pathb=pathb, #库文件
 pathq=pathq,  # 插入文件
 b_n=b_n,#切割数量

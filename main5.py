@@ -102,12 +102,12 @@ def main5(    yuzhi=0.6,
 
 
 
-
+    Removesave=[]
     #pip3 install distance
-    def op(  s,q,kaishi):#这个函数做一次切分操作
+    def op(  s,q,kaishi,skaishi,biaozhi):#这个函数做一次切分操作
         from sklearn.feature_extraction.text import CountVectorizer
         import numpy as np
-
+        nonlocal Removesave
         def jaccard_similarity(s1, s2):
             def add_space(s):
                 return ' '.join(list(s))
@@ -142,6 +142,7 @@ def main5(    yuzhi=0.6,
                 tmp1=edit_distance(q[i],s[j])
                 if tmp1>yuzhi:
                     out.append(i+kaishi)
+                    Removesave.append('废除的句子是q中的'+str(i)+'句'+'      跟他相似的句子是'+str(str(j+skaishi)+biaozhi)+'       句子内容是'+str(s[j]))
                     break
         return set(out)
 
@@ -179,7 +180,7 @@ def main5(    yuzhi=0.6,
 
 
 
-                      tmp=op(s,q,i*delta)
+                      tmp=op(s,q,i*delta,j * delta,'q')
                       out=out.union(tmp)
 
                 delta2= bhang // b_n
@@ -189,7 +190,7 @@ def main5(    yuzhi=0.6,
                         s = linecache.getlines(pathb)[j * delta2:(j + 1) * delta2]
                     else:
                         s = linecache.getlines(pathb)[j * delta2:]
-                    tmp = op(s, q, i * delta)
+                    tmp = op(s, q, i * delta, j * delta2, 's')
                     out = out.union(tmp)
 
 
@@ -202,7 +203,7 @@ def main5(    yuzhi=0.6,
                         s = linecache.getlines(pathb)[j * delta2:(j + 1) * delta2]
                     else:
                         s = linecache.getlines(pathb)[j * delta2:]
-                    tmp = op(s, q, i * delta)
+                    tmp = op(s, q, i * delta, j * delta2, 's')
                     out = out.union(tmp)
 
     print("buyao的数据编号",out)
@@ -210,7 +211,15 @@ def main5(    yuzhi=0.6,
     out2=set(range(qhang))
     out2=out2-out
     print("要的数据编号",out2)
-    return out,out2
+    if not os.path.exists('result'):
+        os.mkdir('result')
+    with open('result/Removesave.txt','w') as f:
+        for i in Removesave:
+           f.writelines(str(i))
+
+
+    return out,out2,Removesave
+
 
     # print(out2)
 
