@@ -123,7 +123,7 @@ def main4(    yuzhi=0.6,
                 tmp1=edit_distance(q[i],s[j])
                 if tmp1<yuzhi:
                     out.append(i+kaishi)
-                    Removesave.append('废除的句子是q中的'+str(i)+'句'+'      跟他相似的句子是'+str(str(j+skaishi)+biaozhi)+'       句子内容是'+str(s[j]))
+                    Removesave.append('废除的句子是q中的'+str(i)+'句'+'  内容是'+q[i]+'      跟他相似的句子是'+str(str(j+skaishi)+biaozhi)+'       句子内容是'+str(s[j]))
                     break
         return set(out)
 
