@@ -1,5 +1,5 @@
 
-def mai2():
+def main2():
     ##
 
     # coding=utf-8
@@ -22,6 +22,13 @@ def mai2():
     
     '''
     yuzhi=0.1
+    pathb='shuru_database.txt'
+    pathq='shuru_query.txt'
+
+
+
+
+
 
     from gensim import corpora, models, similarities
     import logging
@@ -29,17 +36,16 @@ def mai2():
     import jieba
     import time
 
-    pathb='shuru_database.txt'
-    pathq='shuru_query.txt'
+
 
 
 
     start=time.time()
 
     # 准备数据：现有8条文本数据，将8条文本数据放入到list中
-    documentsb =[i for  i in open(pathb,encoding='utf-8').readlines() ]*10000
+    documentsb =[i for  i in open(pathb,encoding='utf-8').readlines() ]
 
-    documentsq =[i for  i in open(pathq,encoding='utf-8').readlines() ]*10000
+    documentsq =[i for  i in open(pathq,encoding='utf-8').readlines() ]
 
 
     shujukushuliang=len(documentsb)
@@ -211,6 +217,8 @@ def mai2():
         os.remove('result/new_wuxiao.txt')
 
     ##
+    if  not os.path.exists('result'):
+        os.mkdir('result')
     with open('result/new_add.txt','w') as f:
 
         for i in tmp5:
@@ -288,3 +296,5 @@ def mai2():
                 f.write('\n')
     end=time.time()
     print(end-start)
+
+main2()
